@@ -46,5 +46,5 @@
 .App {
   height: 100vh;
   background-image: url('./images/back.jpg');
-  background-size: contain;
+  background-size: cover;
 }
