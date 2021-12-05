@@ -1,5 +1,10 @@
 import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
+import {
+  successToast,
+  errorLoginToast,
+  registerErrorToast,
+} from 'toasts/toasts'
 
 const token = {
   set(token) {
@@ -16,10 +21,10 @@ export const userRegOperation = createAsyncThunk(
     try {
       const { data } = await axios.post('/users/signup', credentials)
       token.set(data.token)
+      successToast()
       return data
     } catch (error) {
-      alert('ERROR')
-      return rejectWithValue(error.message)
+      return rejectWithValue(registerErrorToast(), error.message)
     }
   }
 )
@@ -30,10 +35,10 @@ export const userLogInOperation = createAsyncThunk(
     try {
       const { data } = await axios.post('/users/login', credentials)
       token.set(data.token)
+      successToast()
       return data
     } catch (error) {
-      alert('ERROR')
-      return rejectWithValue(error.message)
+      return rejectWithValue(errorLoginToast(), error.message)
     }
   }
 )

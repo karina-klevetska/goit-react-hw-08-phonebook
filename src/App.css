@@ -28,6 +28,7 @@
   padding: 20px 80px 20px 80px;
   -webkit-box-shadow: 5px 5px 10px 1px #000000;
   box-shadow: 5px 5px 10px 1px #000000;
+  background-color: rgba(255, 255, 255, 0.644);
 }
 
 .isHidden {
@@ -40,4 +41,10 @@
 
 .home-p {
   margin-bottom: 40px;
+}
+
+.App {
+  height: 100vh;
+  background-image: url('./images/back.jpg');
+  background-size: contain;
 }

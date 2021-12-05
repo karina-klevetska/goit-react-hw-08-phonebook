@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router'
 import { useDispatch, useSelector } from 'react-redux'
 import { Suspense, useEffect } from 'react'
+import { ToastContainer } from 'react-toastify'
 import { Navigation } from 'Components/Navigation/Navigation'
 import { PrivateRoute } from 'routes/PrivateRoute'
 import { PublicRoute } from 'routes/PublicRoute'
@@ -30,9 +31,10 @@ function App() {
           <h1 className='logo'>Phonebook</h1>
           <Navigation />
         </header>
+        <ToastContainer />
         <Suspense fallback={<Loader />}>
           <Routes>
-            <Route path='/' element={<PrivateRoute component={HomePage} />} />
+            <Route path='/' element={<HomePage />} />
             <Route
               path='/login'
               element={<PublicRoute component={LoginPage} />}
